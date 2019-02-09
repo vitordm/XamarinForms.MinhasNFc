@@ -40,12 +40,12 @@ namespace MinhasNFc.ViewModels
 
             try
             {
-                Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
+                Nfcs.Clear();
+                /*var items = await DataStore.GetItemsAsync(true);
+                foreach (var nfc in items)
                 {
-                    Items.Add(item);
-                }
+                    Nfcs.Add(item);
+                }*/
             }
             catch (Exception ex)
             {
