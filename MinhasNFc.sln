@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinhasNFc.UWP", "MinhasNFc\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinhasNFc", "MinhasNFc\MinhasNFc\MinhasNFc.csproj", "{59252BAE-7274-4AD3-9021-582B5715255E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{7608868E-272F-449E-81EA-15A82A8FC311}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

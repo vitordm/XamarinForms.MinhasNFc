@@ -10,5 +10,7 @@ namespace MinhasNFc.Models
         public int Numero { get; set; }
         public int Serie { get; set; }
         public string QrCode { get; set; }
+
+        public string NumeroSerie => $"{Numero}-{Serie}";
     }
 }

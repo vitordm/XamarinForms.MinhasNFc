@@ -27,6 +27,7 @@ namespace MinhasNFc.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
+            /*
             var item = args.SelectedItem as Item;
             if (item == null)
                 return;
@@ -35,19 +36,22 @@ namespace MinhasNFc.Views
 
             // Manually deselect item.
             ItemsListView.SelectedItem = null;
+            */
         }
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
+            //await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
+            /*
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
+            */
         }
     }
 }

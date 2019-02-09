@@ -12,12 +12,14 @@ namespace MinhasNFc.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<NFc> Nfcs { get; set; }
         public Command LoadItemsCommand { get; set; }
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Nfcs = new ObservableCollection<NFc>();
+            Title = "Minhas NF-c";
+            /*
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
@@ -26,7 +28,7 @@ namespace MinhasNFc.ViewModels
                 var newItem = item as Item;
                 Items.Add(newItem);
                 await DataStore.AddItemAsync(newItem);
-            });
+            });*/
         }
 
         async Task ExecuteLoadItemsCommand()
