@@ -10,6 +10,8 @@ using Xamarin.Forms.Xaml;
 using MinhasNFc.Models;
 using MinhasNFc.Views;
 using MinhasNFc.ViewModels;
+using MinhasNFc.Services.Store;
+using System.Diagnostics;
 
 namespace MinhasNFc.Views
 {
@@ -17,6 +19,8 @@ namespace MinhasNFc.Views
     public partial class ItemsPage : ContentPage
     {
         ItemsViewModel viewModel;
+
+        NFcService _service = new NFcService();
 
         public ItemsPage()
         {
@@ -39,8 +43,21 @@ namespace MinhasNFc.Views
             */
         }
 
-        async void AddItem_Clicked(object sender, EventArgs e)
+        void AddItem_Clicked(object sender, EventArgs e)
         {
+            try
+            {
+                _service.CriarTabela();
+                DisplayAlert("Alert", "You have been alerted", "OK");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                DisplayAlert("Alert", "Deu xabu", "OK");
+
+            }
+
+
             //await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
         }
 
