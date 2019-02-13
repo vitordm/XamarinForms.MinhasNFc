@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MinhasNFc.Interfaces.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MinhasNFc.Models
 {
-    public class NFc
+    public class NFc : IStoreModel
     {
         public int Id { get; set; }
         public int Numero { get; set; }

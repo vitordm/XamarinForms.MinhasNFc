@@ -4,10 +4,15 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace MinhasNFc.Services.Store
+namespace MinhasNFc.Configurations
 {
-    public abstract class BaseStoreSevice
+    public class DatabaseConfiguration
     {
         protected ISQLiteDb SQLiteDb => DependencyService.Get<ISQLiteDb>();
+
+
+        public void Initialize()
+        {
+        }
     }
 }

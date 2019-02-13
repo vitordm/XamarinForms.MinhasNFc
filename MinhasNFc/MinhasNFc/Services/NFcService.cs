@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MinhasNFc.Services.Store
 {
-    public class NFcService : BaseStoreSevice
+    public class NFcService : BaseStoreSevice<NFc>
     {
         public NFcService()
         {
