@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MinhasNFc.Views;
+using MinhasNFc.Helpers.Database;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace MinhasNFc
@@ -13,6 +14,8 @@ namespace MinhasNFc
         {
             InitializeComponent();
 
+            var db = new Db();
+            db.VerificarTabelas();
 
             MainPage = new MainPage();
         }

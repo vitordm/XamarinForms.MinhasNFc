@@ -9,7 +9,18 @@ namespace MinhasNFc.ViewModels
         public Item Item { get; set; }
         public ItemDetailViewModel(Item item = null)
         {
-            Title = item?.Text;
+            if (item == null)
+            {
+                Title = "Novo Item";
+                item = new Item
+                {
+                    CriadoEm = DateTime.Now
+                };
+            }
+            else
+            {
+                Title = "Editar Item";
+            }
             Item = item;
         }
     }

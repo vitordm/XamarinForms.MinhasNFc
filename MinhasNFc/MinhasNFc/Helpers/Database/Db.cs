@@ -1,4 +1,6 @@
-﻿using MinhasNFc.Interfaces.Database;
+﻿using MinhasNFc.Extensions.Database;
+using MinhasNFc.Interfaces.Database;
+using MinhasNFc.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,6 +21,18 @@ namespace MinhasNFc.Helpers.Database
                 }
 
                 return _sqliteDb;
+            }
+        }
+
+
+        public void VerificarTabelas()
+        {
+            using(var conn = SQLiteDb.Connection)
+            {
+                if (!conn.TabelaExiste<Item>())
+                {
+                    conn.CriarTabela<Item>();
+                }
             }
         }
     }

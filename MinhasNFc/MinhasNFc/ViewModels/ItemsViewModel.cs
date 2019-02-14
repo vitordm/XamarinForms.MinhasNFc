@@ -2,27 +2,32 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Linq;
 
 using Xamarin.Forms;
 
 using MinhasNFc.Models;
 using MinhasNFc.Views;
+using MinhasNFc.Interfaces.Services;
+using MinhasNFc.Services;
 
 namespace MinhasNFc.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        public ObservableCollection<NFc> Nfcs { get; set; }
+        public ObservableCollection<Item> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
+        private readonly IItemService _itemService;
 
         public ItemsViewModel()
         {
-            Nfcs = new ObservableCollection<NFc>();
-            Title = "Minhas NF-c";
-            /*
             Items = new ObservableCollection<Item>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            Title = "Minhas NF-c";
+            LoadItemsCommand = new Command(() => ExecuteLoadItemsCommand());
+            _itemService = new ItemService();
 
+
+            /*
             MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
             {
                 var newItem = item as Item;
@@ -31,7 +36,7 @@ namespace MinhasNFc.ViewModels
             });*/
         }
 
-        async Task ExecuteLoadItemsCommand()
+        void ExecuteLoadItemsCommand()
         {
             if (IsBusy)
                 return;
@@ -40,12 +45,11 @@ namespace MinhasNFc.ViewModels
 
             try
             {
-                Nfcs.Clear();
-                /*var items = await DataStore.GetItemsAsync(true);
-                foreach (var nfc in items)
-                {
-                    Nfcs.Add(item);
-                }*/
+
+                var items = _itemService.List();
+                Items.Clear();
+                Items.Concat(items);
+
             }
             catch (Exception ex)
             {

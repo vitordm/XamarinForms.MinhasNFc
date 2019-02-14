@@ -13,25 +13,29 @@ namespace MinhasNFc.Views
     {
         ItemDetailViewModel viewModel;
 
-        public ItemDetailPage(ItemDetailViewModel viewModel)
+        public ItemDetailPage(Item item)
         {
             InitializeComponent();
 
-            BindingContext = this.viewModel = viewModel;
+            BindingContext = this.viewModel = new ItemDetailViewModel(item);
         }
 
         public ItemDetailPage()
         {
             InitializeComponent();
-
-            var item = new Item
-            {
-                Text = "Item 1",
-                Description = "This is an item description."
-            };
-
-            viewModel = new ItemDetailViewModel(item);
-            BindingContext = viewModel;
+            BindingContext = this.viewModel = new ItemDetailViewModel();
         }
+
+        private void Cancel_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Save_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

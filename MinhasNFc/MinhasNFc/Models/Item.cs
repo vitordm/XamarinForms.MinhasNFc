@@ -1,11 +1,17 @@
-﻿using System;
+﻿using MinhasNFc.Interfaces.Models;
+using SQLite;
+using System;
 
 namespace MinhasNFc.Models
 {
-    public class Item
+    public class Item : IStoreModel
     {
-        public string Id { get; set; }
-        public string Text { get; set; }
-        public string Description { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        public string QrCode { get; set; }
+        public bool Sincronizado { get; set; }
+        public DateTime CriadoEm { get; set; }
+
+        public string CriadoEmFormat => CriadoEm.ToString("dd/MM/yyyy HH:mm");
     }
 }
