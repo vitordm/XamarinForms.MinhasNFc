@@ -40,8 +40,7 @@ namespace MinhasNFc.Extensions.Database
 
         public static void CriarTabela<T>(this SQLiteConnection connection)
         {
-            
-                connection.CreateTable<T>();
+            connection.CreateTable<T>();
         }
 
         public static bool VerificarSeColunasExistes<T>(this SQLiteConnection connection, IList<string> columns, out IList<string> columnsNotExists)

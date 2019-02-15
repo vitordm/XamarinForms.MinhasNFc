@@ -13,7 +13,7 @@ namespace MinhasNFc.Services
 
         public IList<T> List()
         {
-            using (var conn = SQLiteDb.Connection)
+            using (var conn = SQLiteDb.GetConnection())
             {
 
                 return conn.Table<T>().ToList();
@@ -22,15 +22,15 @@ namespace MinhasNFc.Services
 
         public T GetById(int id)
         {
-            using (var conn = SQLiteDb.Connection)
+            using (var conn = SQLiteDb.GetConnection())
             {
                 return conn.Get<T>(id);
             }
         }
 
-        public T Insert(T data)
+        public virtual T Insert(T data)
         {
-            using (var conn = SQLiteDb.Connection)
+            using (var conn = SQLiteDb.GetConnection())
             {
                 conn.Insert(data);
                 return data;
@@ -39,7 +39,7 @@ namespace MinhasNFc.Services
 
         public void Update(T data)
         {
-            using (var conn = SQLiteDb.Connection)
+            using (var conn = SQLiteDb.GetConnection())
             {
                 conn.Update(data);
             }
@@ -47,7 +47,7 @@ namespace MinhasNFc.Services
 
         public void Delete(T data)
         {
-            using (var conn = SQLiteDb.Connection)
+            using (var conn = SQLiteDb.GetConnection())
             {
                 conn.Delete<T>(data.Id);
             }

@@ -11,7 +11,7 @@
                 </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>
-        <ToolbarItem Text="Save" Clicked="Save_Clicked">
+        <ToolbarItem Text="Save" Command="{Binding SalvarComando}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="UWP" Value="save.png"/>

@@ -23,17 +23,9 @@ namespace MinhasNFc.ViewModels
         {
             Items = new ObservableCollection<Item>();
             Title = "Minhas NF-c";
-            LoadItemsCommand = new Command(() => ExecuteLoadItemsCommand());
             _itemService = new ItemService();
 
-
-            /*
-            MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
-            {
-                var newItem = item as Item;
-                Items.Add(newItem);
-                await DataStore.AddItemAsync(newItem);
-            });*/
+            LoadItemsCommand = new Command(() => ExecuteLoadItemsCommand());
         }
 
         void ExecuteLoadItemsCommand()
@@ -45,10 +37,15 @@ namespace MinhasNFc.ViewModels
 
             try
             {
+                Items.Clear();
 
                 var items = _itemService.List();
-                Items.Clear();
-                Items.Concat(items);
+                foreach(var item in items)
+                {
+                    Items.Add(item);
+                }
+
+                OnPropertyChanged(nameof(Items));
 
             }
             catch (Exception ex)
@@ -60,5 +57,7 @@ namespace MinhasNFc.ViewModels
                 IsBusy = false;
             }
         }
+
+        public void AtualizarLista() => ExecuteLoadItemsCommand();
     }
 }
