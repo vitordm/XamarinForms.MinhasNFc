@@ -10,19 +10,10 @@ namespace MinhasNFc.Droid.Configurations.Database
     class SQLiteDb : Java.Lang.Object, ISQLiteDb
     {
 
-        private SQLiteConnection _connection = null;
-        public SQLiteConnection Connection
+        public SQLiteConnection GetConnection()
         {
-            get
-            {
-                if (_connection == null)
-                {
-                    _connection = new SQLiteConnection(SQLitePath);
-                }
-                return _connection;
-            }
+            return (new SQLiteConnection(SQLitePath));
         }
-
 
         public string SQLitePath
         {

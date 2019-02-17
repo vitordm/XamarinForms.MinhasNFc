@@ -4,7 +4,7 @@ namespace MinhasNFc.Interfaces.Database
 {
     public interface ISQLiteDb
     {
-        SQLiteConnection Connection { get; }
+        SQLiteConnection GetConnection();
         string SQLitePath { get; }
     }
 }

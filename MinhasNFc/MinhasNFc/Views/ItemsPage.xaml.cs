@@ -45,7 +45,7 @@ namespace MinhasNFc.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
+            viewModel.AtualizarLista();
             /*
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);

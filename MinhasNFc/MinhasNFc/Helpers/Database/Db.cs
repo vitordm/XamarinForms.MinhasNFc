@@ -27,7 +27,7 @@ namespace MinhasNFc.Helpers.Database
 
         public void VerificarTabelas()
         {
-            using(var conn = SQLiteDb.Connection)
+            using(var conn = SQLiteDb.GetConnection())
             {
                 if (!conn.TabelaExiste<Item>())
                 {
