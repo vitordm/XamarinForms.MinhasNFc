@@ -27,11 +27,26 @@ namespace MinhasNFc.Helpers.Database
 
         public void VerificarTabelas()
         {
-            using(var conn = SQLiteDb.GetConnection())
+            using (var conn = SQLiteDb.GetConnection())
             {
                 if (!conn.TabelaExiste<Item>())
                 {
                     conn.CriarTabela<Item>();
+                }
+
+                if (!conn.TabelaExiste<NFc>())
+                {
+                    conn.CriarTabela<NFc>();   
+                }
+
+                if (!conn.TabelaExiste<NFcComercio>())
+                {
+                    conn.CriarTabela<NFcComercio>();
+                }
+
+                if (!conn.TabelaExiste<NFcItem>())
+                {
+                    conn.CriarTabela<NFcItem>();
                 }
             }
         }

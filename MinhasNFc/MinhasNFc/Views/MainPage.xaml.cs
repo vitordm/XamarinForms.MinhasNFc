@@ -1,4 +1,5 @@
-﻿using MinhasNFc.Models;
+﻿using MinhasNFc.Interfaces.Database;
+using MinhasNFc.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

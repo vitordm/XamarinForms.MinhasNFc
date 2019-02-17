@@ -5,6 +5,8 @@
               Title="{Binding Title}"
              x:Name="BrowseItemsPage">
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="BKP" Clicked="ToolbarItem_Clicked">
+        </ToolbarItem>
         <ToolbarItem Text="Nova" Clicked="AddItem_Clicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">

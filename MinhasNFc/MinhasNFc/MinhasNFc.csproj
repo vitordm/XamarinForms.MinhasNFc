@@ -13,11 +13,21 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
     <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
+    <PackageReference Include="SQLiteNetExtensions" Version="2.1.0" />
     <PackageReference Include="SQLitePCLRaw.bundle_green" Version="1.1.13" />
     <PackageReference Include="SQLitePCLRaw.core" Version="1.1.13" />
     <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
     <PackageReference Include="Xamarin.Forms" Version="3.5.0.129452" />
     <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
     <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />  
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\DLLsExtras\MyParserNFc\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="MyParserNFc">
+      <HintPath>..\..\DLLsExtras\MyParserNFc\MyParserNFc.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

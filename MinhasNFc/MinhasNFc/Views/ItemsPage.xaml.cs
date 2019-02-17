@@ -11,6 +11,7 @@ using MinhasNFc.Models;
 using MinhasNFc.Views;
 using MinhasNFc.ViewModels;
 using System.Diagnostics;
+using MinhasNFc.Interfaces.Database;
 
 namespace MinhasNFc.Views
 {
@@ -50,6 +51,12 @@ namespace MinhasNFc.Views
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
             */
+        }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            var db = DependencyService.Get<ISQLiteDb>();
+            db?.ExportaDatabase();
         }
     }
 }

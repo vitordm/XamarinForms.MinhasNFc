@@ -16,12 +16,6 @@ namespace MinhasNFc.Extensions.Database
 
         public static bool TabelaExiste(this SQLiteConnection connection, string tableName)
         {
-            //SQLite.TableMapping map = new TableMapping(typeof(SQLiteConnection)); // Instead of mapping to a specific table just map the whole database type
-            //object[] ps = new object[0]; // An empty parameters object since I never worked out how to use it properly! (At least I'm honest)
-
-            //Int32 tableCount = GetConnection().Query(map, "SELECT * FROM sqlite_master WHERE type = 'table' AND name = '" + tableName + "'", ps).Count; // Executes the query from which we can count the results
-            //Int32 tableCount = GetConnection().Query();
-
             var tableCount = connection.ExecuteScalar<int>("SELECT COUNT(*) FROM sqlite_master WHERE type = 'table' AND name = '" + tableName + "'");
 
             if (tableCount == 0)

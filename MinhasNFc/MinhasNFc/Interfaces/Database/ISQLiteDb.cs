@@ -6,5 +6,6 @@ namespace MinhasNFc.Interfaces.Database
     {
         SQLiteConnection GetConnection();
         string SQLitePath { get; }
+        void ExportaDatabase();
     }
 }

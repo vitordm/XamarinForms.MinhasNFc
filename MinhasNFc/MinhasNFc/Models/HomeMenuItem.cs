@@ -7,7 +7,8 @@ namespace MinhasNFc.Models
     public enum MenuItemType
     {
         Browse,
-        About
+        About,
+        Secret,
     }
     public class HomeMenuItem
     {

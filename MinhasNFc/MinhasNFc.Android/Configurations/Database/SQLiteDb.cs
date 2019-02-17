@@ -1,6 +1,8 @@
-﻿using MinhasNFc.Droid.Configurations.Database;
+﻿using Android.Util;
+using MinhasNFc.Droid.Configurations.Database;
 using MinhasNFc.Interfaces.Database;
 using SQLite;
+using System;
 using System.IO;
 using Xamarin.Forms;
 
@@ -24,5 +26,24 @@ namespace MinhasNFc.Droid.Configurations.Database
                 return caminho;
             }
         }
+
+        public void ExportaDatabase()
+        {
+            try
+            {
+                var arquivoDb = SQLitePath;
+
+                var bytes = System.IO.File.ReadAllBytes(arquivoDb);
+                var gerenciador = new GerenciadorArquivos();
+                gerenciador.SalvarArquivoEmPastaPublica(bytes, "db.db3", out string caminhoArquivo);
+                Log.Info("APP-DATABASE", caminhoArquivo);
+            }
+            catch (Exception ex)
+            {
+                Log.Info("GERENCIADOR", ex.Message);
+            }
+        }
     }
+
+
 }
