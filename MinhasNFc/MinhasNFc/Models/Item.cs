@@ -14,6 +14,8 @@ namespace MinhasNFc.Models
         public DateTime CriadoEm { get; set; }
         [ForeignKey(typeof(NFc))]
         public int? NFcId { get; set; }
+        [SQLite.Ignore]
+        public NFc NFc { get; set; }
 
         public string CriadoEmFormat => CriadoEm.ToString("dd/MM/yyyy HH:mm");
     }

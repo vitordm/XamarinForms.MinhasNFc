@@ -59,5 +59,17 @@ namespace MinhasNFc.ViewModels
         }
 
         public void AtualizarLista() => ExecuteLoadItemsCommand();
+
+        public void DeletarItem(Item item)
+        {
+            _itemService.Delete(item);
+            AtualizarLista();
+        }
+
+        public void SincronizarItem(Item item)
+        {
+            _itemService.Sincronizar(item);
+            AtualizarLista();
+        }
     }
 }

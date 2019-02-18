@@ -11,7 +11,7 @@ namespace MinhasNFc.Services
     public class GenericService<T> : BaseService,  IStoreService<T> where T : IStoreModel, new()
     {
 
-        public IList<T> List()
+        public virtual IList<T> List()
         {
             using (var conn = SQLiteDb.GetConnection())
             {
@@ -20,7 +20,7 @@ namespace MinhasNFc.Services
             }
         }
 
-        public T GetById(int id)
+        public virtual T GetById(int id)
         {
             using (var conn = SQLiteDb.GetConnection())
             {
@@ -37,7 +37,7 @@ namespace MinhasNFc.Services
             }
         }
 
-        public void Update(T data)
+        public virtual void Update(T data)
         {
             using (var conn = SQLiteDb.GetConnection())
             {
@@ -45,7 +45,7 @@ namespace MinhasNFc.Services
             }
         }
 
-        public void Delete(T data)
+        public virtual void Delete(T data)
         {
             using (var conn = SQLiteDb.GetConnection())
             {

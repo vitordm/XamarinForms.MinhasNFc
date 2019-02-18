@@ -49,12 +49,32 @@ namespace MinhasNFc.Views
             viewModel.AtualizarLista();
         }
 
-        
-
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {
             var db = DependencyService.Get<ISQLiteDb>();
             db?.ExportaDatabase();
+        }
+
+        private async void MenuItemDeletarItem_Clicked(object sender, EventArgs e)
+        {
+            var menuItem = sender as MenuItem;
+            var item = menuItem.CommandParameter as Item;
+            if (item == null || item.Sincronizado)
+                return;
+
+            var resposta = await DisplayAlert("Deletar Item", "Você deseja realmente deletar esse item?", "Sim", "Não");
+            if (resposta)
+                viewModel.DeletarItem(item);
+        }
+
+        private void MenuItemSincronizar_Clicked(object sender, EventArgs e)
+        {
+            var menuItem = sender as MenuItem;
+            var item = menuItem.CommandParameter as Item;
+            if (item.Sincronizado || item.NFcId > 0)
+                return;
+
+            viewModel.SincronizarItem(item);
         }
     }
 }

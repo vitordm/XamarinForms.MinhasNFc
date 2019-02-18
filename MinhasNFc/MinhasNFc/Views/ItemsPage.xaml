@@ -29,6 +29,19 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem x:Name="MenuItemSincronizar"
+                                      Clicked="MenuItemSincronizar_Clicked"
+                                      Text="Sync"
+                                      CommandParameter="{Binding .}"
+                                      IsDestructive="True">
+                            </MenuItem>
+                            <MenuItem x:Name="MenuItemDeletarItem"
+                                      Clicked="MenuItemDeletarItem_Clicked"
+                                      Text="Deletar"
+                                      CommandParameter="{Binding .}"
+                                      IsDestructive="True"></MenuItem>
+                        </ViewCell.ContextActions>
                         <StackLayout Padding="10">
                             <Label Text="{Binding QrCode}" 
                                 LineBreakMode="NoWrap" 

@@ -15,7 +15,5 @@ namespace MinhasNFc.Models
         public string CNPJ { get; set; }
         public string IE { get; set; }
         public string Endereco { get; set; }
-        [ForeignKey(typeof(NFc))]
-        public int NFcId { get; set; }
     }
 }

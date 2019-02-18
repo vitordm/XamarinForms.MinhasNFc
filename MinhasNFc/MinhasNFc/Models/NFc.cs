@@ -20,6 +20,8 @@ namespace MinhasNFc.Models
         public double? ValorPago { get; set; }
         public bool ConsumidorIdentificado { get; set; }
         public string DocumentoConsumidor { get; set; }
+
+        [ForeignKey(typeof(NFcComercio))]
         public int ComercioId { get; set; }
 
         [SQLite.Ignore]
