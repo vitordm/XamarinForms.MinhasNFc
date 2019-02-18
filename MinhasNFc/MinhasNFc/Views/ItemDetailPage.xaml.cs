@@ -57,6 +57,28 @@ namespace MinhasNFc.Views
         {
             Navigation.PopAsync(true);
         }
-        
+
+        private async void BtnCameraQrCode_Clicked(object sender, EventArgs e)
+        {
+            ZXing.Mobile.MobileBarcodeScanner scanner = new ZXing.Mobile.MobileBarcodeScanner
+            {
+                FlashButtonText = "Flash",
+                TopText = "Cima",
+                BottomText = "Baixo"
+            };
+
+            var result = await scanner.Scan();
+
+            if (result != null)
+            {
+                string codigoQrCode = result.Text;
+                if (!codigoQrCode.StartsWith("http"))
+                {
+                    await DisplayAlert("QrCode", "QrCode Inválido", "Ok");
+                }
+
+                viewModel.AtualizaQrCode(codigoQrCode);
+            }
+        }
     }
 }

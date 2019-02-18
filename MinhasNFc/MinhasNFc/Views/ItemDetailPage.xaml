@@ -22,8 +22,9 @@
 
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="15">
-            <Label Text="Text:" FontSize="Medium" />
-            <Entry Text="{Binding Item.QrCode}" FontSize="Small" />
+            <Label Text="QrCode:" FontSize="Medium" />
+            <Entry Text="{Binding Item.QrCode, Mode=TwoWay}" FontSize="Small" IsEnabled="{Binding HabilitarEdicao}" />
+            <Button Text="Abrir Camera" IsEnabled="{Binding HabilitarEdicao}" x:Name="BtnCameraQrCode" Clicked="BtnCameraQrCode_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 

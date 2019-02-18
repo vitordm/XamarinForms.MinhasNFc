@@ -47,11 +47,9 @@ namespace MinhasNFc.Views
         {
             base.OnAppearing();
             viewModel.AtualizarLista();
-            /*
-            if (viewModel.Items.Count == 0)
-                viewModel.LoadItemsCommand.Execute(null);
-            */
         }
+
+        
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {

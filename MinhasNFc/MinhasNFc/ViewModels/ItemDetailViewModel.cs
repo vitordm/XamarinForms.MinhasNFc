@@ -10,6 +10,7 @@ namespace MinhasNFc.ViewModels
     {
         public Item Item { get; set; }
         public Command SalvarComando { get; private set; }
+        public bool HabilitarEdicao { get; private set; }
 
         private readonly ItemService _itemService;
         private readonly bool _isNovoItem;
@@ -32,6 +33,7 @@ namespace MinhasNFc.ViewModels
             }
 
             Item = item;
+            HabilitarEdicao = !item.Sincronizado;
 
             SalvarComando = new Command(() => ExecuteSalvarComando());
 
@@ -65,6 +67,13 @@ namespace MinhasNFc.ViewModels
                 MessagingCenter.Send<string>(ex.Message, "OnItemSaveError");
             }
             
+        }
+
+        public void AtualizaQrCode(string codigoQrCode)
+        {
+            Item.QrCode = codigoQrCode;
+
+            OnPropertyChanged(nameof(Item));
         }
     }
 }

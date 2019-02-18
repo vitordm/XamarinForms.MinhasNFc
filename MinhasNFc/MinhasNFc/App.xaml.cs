@@ -4,6 +4,9 @@ using Xamarin.Forms.Xaml;
 using MinhasNFc.Views;
 using MinhasNFc.Helpers.Database;
 
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
+
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace MinhasNFc
 {
@@ -23,6 +26,7 @@ namespace MinhasNFc
         protected override void OnStart()
         {
             // Handle when your app starts
+            SolicitaPermissoesAsync();
         }
 
         protected override void OnSleep()
@@ -33,6 +37,44 @@ namespace MinhasNFc
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+
+        private async void SolicitaPermissoesAsync()
+        {
+            /*
+            var cameraPermission = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
+            var salvarPermission = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
+
+            if (cameraPermission != PermissionStatus.Granted || salvarPermission != PermissionStatus.Granted)
+            {
+                var results = await CrossPermissions.Current.RequestPermissionsAsync(new[] { Permission.Camera, Permission.Storage });
+                cameraPermission = results[Permission.Camera];
+                salvarPermission = results[Permission.Storage];
+            }
+
+            if (cameraPermission != PermissionStatus.Granted || salvarPermission != PermissionStatus.Granted)
+            {
+                await DisplayAlert("Permissões", "Acesse suas configurações e ative as permissões", "Ok");
+            }*/
+
+            var cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
+            if (cameraStatus != PermissionStatus.Granted)
+            {
+                var results = await CrossPermissions.Current.RequestPermissionsAsync(new[] { Permission.Camera });
+                cameraStatus = results[Permission.Camera];
+            }
+
+            var storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
+            if (storageStatus != PermissionStatus.Granted)
+            {
+                var results = await CrossPermissions.Current.RequestPermissionsAsync(new[] { Permission.Camera, Permission.Storage });
+                storageStatus = results[Permission.Storage];
+            }
+
+            if (storageStatus != PermissionStatus.Granted || storageStatus != PermissionStatus.Granted)
+            {
+                //await DisplayAlert("Permissões", "Acesse suas configurações e ative as permissões", "Ok");
+            }
         }
     }
 }
