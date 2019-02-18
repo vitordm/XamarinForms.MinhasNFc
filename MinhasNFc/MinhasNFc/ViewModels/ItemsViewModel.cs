@@ -22,7 +22,7 @@ namespace MinhasNFc.ViewModels
         public ItemsViewModel()
         {
             Items = new ObservableCollection<Item>();
-            Title = "Minhas NF-c";
+            Title = "Meus QrCodes";
             _itemService = new ItemService();
 
             LoadItemsCommand = new Command(() => ExecuteLoadItemsCommand());

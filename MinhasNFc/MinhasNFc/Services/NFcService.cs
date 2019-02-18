@@ -9,12 +9,12 @@ namespace MinhasNFc.Services
 {
     public class NFcService : GenericService<NFc>, IStoreService<NFc>
     {
-        private readonly NFcComercioService _NFcComercioService;
+        private readonly NFcComercioService _nfcComercioService;
         private readonly NFcItemService _NFcItemService;
 
         public NFcService()
         {
-            _NFcComercioService = new NFcComercioService();
+            _nfcComercioService = new NFcComercioService();
             _NFcItemService = new NFcItemService();
         }
 
@@ -22,7 +22,7 @@ namespace MinhasNFc.Services
         {
             if (data.ComercioId == 0 && data.Comercio != null)
             {
-                data.Comercio = _NFcComercioService.FindByCnpjOrNew(data.Comercio);
+                data.Comercio = _nfcComercioService.FindByCnpjOrNew(data.Comercio);
                 data.ComercioId = data.Comercio.Id;
             }
 
@@ -39,6 +39,22 @@ namespace MinhasNFc.Services
             }
 
             return data;
+        }
+
+        public IList<NFc> ListWithComercio()
+        {
+            var nfcs = List();
+            if (nfcs.Any())
+            {
+                nfcs = nfcs.Select((nfc) =>
+                {
+                    nfc.Comercio = _nfcComercioService.GetById(nfc.ComercioId);
+                    return nfc;
+                })
+                .ToList();
+            }
+
+            return nfcs;
         }
     }
 }

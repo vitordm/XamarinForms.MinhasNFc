@@ -19,6 +19,7 @@ namespace MinhasNFc.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
+                new HomeMenuItem {Id = MenuItemType.NFc, Title = "NFc" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" },
             };
 

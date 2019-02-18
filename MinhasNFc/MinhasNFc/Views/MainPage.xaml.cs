@@ -30,6 +30,9 @@ namespace MinhasNFc.Views
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
+                    case (int)MenuItemType.NFc:
+                        MenuPages.Add(id, new NavigationPage(new NFcsPage()));
+                        break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;

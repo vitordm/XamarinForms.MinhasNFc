@@ -30,4 +30,10 @@
       <HintPath>..\..\DLLsExtras\MyParserNFc\MyParserNFc.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\NFcsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

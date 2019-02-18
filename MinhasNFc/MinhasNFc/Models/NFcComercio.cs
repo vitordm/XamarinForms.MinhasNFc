@@ -15,5 +15,10 @@ namespace MinhasNFc.Models
         public string CNPJ { get; set; }
         public string IE { get; set; }
         public string Endereco { get; set; }
+
+        public override string ToString()
+        {
+            return RazaoSocial;
+        }
     }
 }

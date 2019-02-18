@@ -65,7 +65,8 @@ namespace MinhasNFc.Services
             {
                 CNPJ = nfc.Comercio.CNPJ,
                 IE = nfc.Comercio.IE,
-                RazaoSocial = nfc.Comercio.RazaoSocial
+                RazaoSocial = nfc.Comercio.RazaoSocial,
+                Endereco = nfc.Comercio.Endereco
             };
 
             nfcMobo.Comercio = nfcComercio;
