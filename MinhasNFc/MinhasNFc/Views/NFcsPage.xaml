@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MinhasNFc.Views.NFcsPage">
-    <StackLayout>
+    <StackLayout VerticalOptions="FillAndExpand">
         <ListView x:Name="MyListView"
                   ItemsSource="{Binding NFcs}"
                   VerticalOptions="FillAndExpand"
@@ -20,7 +20,7 @@
                             <Label Text="{Binding NumeroSerie}" 
                                 LineBreakMode="NoWrap" 
                                 FontSize="16" />
-                    <Label Text="{Binding Comercio.RazaoSocial}" 
+                            <Label Text="{Binding Comercio.RazaoSocial}" 
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
                                 FontSize="13" />

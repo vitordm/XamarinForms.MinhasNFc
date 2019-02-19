@@ -17,11 +17,8 @@ namespace MinhasNFc.Views
         
         public NFcsPage()
         {
-            
             InitializeComponent();
-
             BindingContext = _viewModel = new NFcsViewModel();
-
         }
 
         protected override void OnAppearing()
