@@ -1,21 +1,83 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MinhasNFc.Views.NFcPage">
-    <ContentView.Content>
-        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" >
-            
-            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                <StackLayout Orientation="Vertical" Padding="0" Margin="0">
-                    <Label Text="Numero" FontSize="13"/>
-                    <Label Text="100" FontSize="14"/>
-                </StackLayout>
-                <StackLayout Orientation="Vertical" Padding="0" Margin="0">
-                    <Label Text="Série" FontSize="13"/>
-                    <Label Text="100" FontSize="14"/>
+             x:Class="MinhasNFc.Views.NFcPage" 
+             Title="Detalhe NFc-e">
+    <ContentPage.ToolbarItems>
+        
+    </ContentPage.ToolbarItems>
+    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="20" >
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" Padding="0" Margin="0" VerticalOptions="StartAndExpand">
+                <Label Text="Numero" FontSize="13" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                <Label Text="100" FontSize="16" HorizontalTextAlignment="Center" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical" Padding="5,0,0,0" Margin="0,0,50,0" VerticalOptions="StartAndExpand">
+                <Label Text="Série" FontSize="13" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                <Label Text="100" FontSize="14" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" Padding="0" Margin="0"  HorizontalOptions="EndAndExpand">
+                <Label Text="Data da Compra" FontSize="13" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                <Label Text="22/10/2019 15:10:01" FontSize="14" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout HorizontalOptions="FillAndExpand" Padding="0,10,0,0">
+            <Label Text="Comprador" FontSize="13" FontAttributes="Bold"/>
+            <Label Text="NÃO IDENTIFICADO" FontSize="15" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+        <StackLayout HorizontalOptions="FillAndExpand" Padding="0,10,0,0">
+            <Label Text="Comércio" FontSize="13" FontAttributes="Bold"/>
+            <Label Text="Cia Zaffari" FontSize="15"/>
+        </StackLayout>
+        <StackLayout HorizontalOptions="FillAndExpand" Padding="0,10,0,0">
+            <Label Text="Endereço" FontSize="13" FontAttributes="Bold"/>
+            <Label Text="Av. Sertório 11" FontSize="15"/>
+        </StackLayout>
+        <StackLayout HorizontalOptions="Fill" Padding="0,10,0,0">
+            <Label Text="Itens" FontSize="13" FontAttributes="Bold"/>
+            <StackLayout Orientation="Vertical" BackgroundColor="White" Padding="10">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="5">
+                    <Label Text="Codigo" />
+                    <Label Text="Descricao" />
+                    <Label Text="Un" />
+                    <Label Text="Valor Unitario" />
+                    <Label Text="Valor Total" />
                 </StackLayout>
             </StackLayout>
+            <ListView HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" BackgroundColor="White" Padding="10">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="5">
+                                    <Label Text="Codigo" />
+                                    <Label Text="Descricao" />
+                                    <Label Text="Un" />
+                                    <Label Text="Valor Unitario" />
+                                    <Label Text="Valor Total" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
 
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
-    </ContentView.Content>
-</ContentView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <StackLayout Orientation="Vertical" Padding="0" Margin="0" VerticalOptions="StartAndExpand">
+                <Label Text="Valor Desconto" FontSize="13" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                <Label Text="100,10" FontSize="16" HorizontalTextAlignment="Center" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical" Padding="0" Margin="0" VerticalOptions="StartAndExpand">
+                <Label Text="Valor Total" FontSize="13" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                <Label Text="100,10" FontSize="16" HorizontalTextAlignment="Center" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical" Padding="0" Margin="0" VerticalOptions="StartAndExpand">
+                <Label Text="Valor Pago" FontSize="13" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                <Label Text="100,10" FontSize="16" HorizontalTextAlignment="Center" />
+            </StackLayout>
+        </StackLayout>
+        
+    </StackLayout>
+</ContentPage>
