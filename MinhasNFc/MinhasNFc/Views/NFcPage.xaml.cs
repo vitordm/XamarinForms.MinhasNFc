@@ -11,15 +11,18 @@ using MinhasNFc.ViewModels;
 
 namespace MinhasNFc.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NFcPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class NFcPage : ContentPage
+    {
         private readonly NFcViewModel _viewModel;
 
-        public NFcPage (NFc nfc)
-		{
-			InitializeComponent ();
+        public NFcPage(NFc nfc)
+        {
+            InitializeComponent();
             BindingContext = _viewModel = new NFcViewModel(nfc);
-		}
-	}
+   
+        }
+
+        
+    }
 }

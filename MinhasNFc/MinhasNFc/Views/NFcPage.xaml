@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MinhasNFc.Views.NFcPage" 
              Title="Detalhe NFc-e">
+
     <ContentPage.ToolbarItems>
-        
+
     </ContentPage.ToolbarItems>
     <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="20" >
 
@@ -38,24 +39,53 @@
             <Label Text="Itens" FontSize="13" FontAttributes="Bold"/>
             <StackLayout Orientation="Vertical">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Codigo" FontSize="12" FontAttributes="Bold"/>
-                    <Label Text="Descricao" FontSize="12" FontAttributes="Bold"/>
-                    <Label Text="Un" FontSize="12" FontAttributes="Bold" />
-                    <Label Text="Valor Unitario" FontSize="12" FontAttributes="Bold" />
-                    <Label Text="Valor Total" FontSize="12" FontAttributes="Bold" />
+                    <Label Text="Codigo" FontSize="12" 
+                           FontAttributes="Bold"
+                           WidthRequest="50" 
+                           HorizontalOptions="StartAndExpand"/>
+                    <Label Text="Descricao" FontSize="12" 
+                           FontAttributes="Bold"
+                           WidthRequest="150" 
+                           HorizontalOptions="StartAndExpand"/>
+                    <Label Text="Un" FontSize="12" 
+                           FontAttributes="Bold"
+                           WidthRequest="20" 
+                           HorizontalOptions="StartAndExpand"/>
+                    <Label Text="Valor Un" FontSize="12" 
+                           FontAttributes="Bold"
+                           WidthRequest="50" 
+                           HorizontalOptions="StartAndExpand"/>
+                    <Label Text="Valor Total" FontSize="12" 
+                           FontAttributes="Bold"
+                           WidthRequest="50" 
+                           HorizontalOptions="StartAndExpand" />
                 </StackLayout>
             </StackLayout>
-            <ListView HasUnevenRows="False" ItemsSource="{Binding Nfc.Itens}" SelectionMode="None">
+            <ListView HasUnevenRows="False" 
+                      ItemsSource="{Binding Nfc.Itens}" 
+                      SelectionMode="None" 
+                      VerticalScrollBarVisibility="Default"
+                      HorizontalOptions="StartAndExpand">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Vertical">
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                                    <Label Text="{Binding Codigo}" FontSize="12" />
-                                    <Label Text="{Binding Descricao}" FontSize="12" />
-                                    <Label Text="{Binding Un}" FontSize="12" />
-                                    <Label Text="{Binding ValorUnitario}" FontSize="12" />
-                                    <Label Text="{Binding ValorTotal}" FontSize="12" />
+                                    <Label Text="{Binding Codigo}" FontSize="12" 
+                                           WidthRequest="50" 
+                                           HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding Descricao}" FontSize="12"  
+                                           WidthRequest="150" 
+                                           HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding Un}" FontSize="12" 
+                                           WidthRequest="20" 
+                                           HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding ValorUnitario}" FontSize="12" 
+                                           WidthRequest="50" 
+                                           HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding ValorTotal}" FontSize="12" 
+                                           WidthRequest="50" 
+                                           HorizontalOptions="StartAndExpand"/>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
@@ -65,6 +95,10 @@
             </ListView>
         </StackLayout>
         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <StackLayout Orientation="Vertical" Padding="0" Margin="0" VerticalOptions="StartAndExpand">
+                <Label Text="Forma Pagamento" FontSize="13" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                <Label Text="{Binding Nfc.FormaPagamento}" FontSize="16" HorizontalTextAlignment="Center" />
+            </StackLayout>
             <StackLayout Orientation="Vertical" Padding="0" Margin="0" VerticalOptions="StartAndExpand">
                 <Label Text="Valor Desconto" FontSize="13" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
                 <Label Text="{Binding Nfc.ValorDescontos}" FontSize="16" HorizontalTextAlignment="Center" />
@@ -78,9 +112,7 @@
                 <Label Text="{Binding Nfc.ValorPago}" FontSize="16" HorizontalTextAlignment="Center" />
             </StackLayout>
         </StackLayout>
-        
+
     </StackLayout>
 </ContentPage>
-<!--
-    tentar usar: https://gist.github.com/Char0394/f2c7f5e8a83144ab26a8b3863f36a4bc
---->
+<!-- tentar usar: https://gist.github.com/Char0394/f2c7f5e8a83144ab26a8b3863f36a4bc -->
