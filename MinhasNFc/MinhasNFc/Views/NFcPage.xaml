@@ -34,28 +34,28 @@
             <Label Text="Endereço" FontSize="13" FontAttributes="Bold"/>
             <Label Text="Av. Sertório 11" FontSize="15"/>
         </StackLayout>
-        <StackLayout HorizontalOptions="Fill" Padding="0,10,0,0">
+        <StackLayout HorizontalOptions="Fill" Padding="5,10,5,0">
             <Label Text="Itens" FontSize="13" FontAttributes="Bold"/>
-            <StackLayout Orientation="Vertical" Padding="10">
-                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="5">
-                    <Label Text="Codigo" FontSize="15" FontAttributes="Bold"/>
-                    <Label Text="Descricao" FontSize="15" FontAttributes="Bold"/>
-                    <Label Text="Un" FontSize="15" FontAttributes="Bold" />
-                    <Label Text="Valor Unitario" FontSize="15" FontAttributes="Bold" />
-                    <Label Text="Valor Total" FontSize="15" FontAttributes="Bold" />
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="Codigo" FontSize="12" FontAttributes="Bold"/>
+                    <Label Text="Descricao" FontSize="12" FontAttributes="Bold"/>
+                    <Label Text="Un" FontSize="12" FontAttributes="Bold" />
+                    <Label Text="Valor Unitario" FontSize="12" FontAttributes="Bold" />
+                    <Label Text="Valor Total" FontSize="12" FontAttributes="Bold" />
                 </StackLayout>
             </StackLayout>
-            <ListView HasUnevenRows="True" ItemsSource="{Binding Nfc.Itens}">
+            <ListView HasUnevenRows="False" ItemsSource="{Binding Nfc.Itens}" SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Vertical"  Padding="10">
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="5">
-                                    <Label Text="{Binding Codigo}" FontSize="14" />
-                                    <Label Text="{Binding Descricao}" FontSize="14" />
-                                    <Label Text="{Binding Un}" FontSize="14" />
-                                    <Label Text="{Binding ValorUnitario}" FontSize="14" />
-                                    <Label Text="{Binding ValorTotal}" FontSize="14" />
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                    <Label Text="{Binding Codigo}" FontSize="12" />
+                                    <Label Text="{Binding Descricao}" FontSize="12" />
+                                    <Label Text="{Binding Un}" FontSize="12" />
+                                    <Label Text="{Binding ValorUnitario}" FontSize="12" />
+                                    <Label Text="{Binding ValorTotal}" FontSize="12" />
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
@@ -81,3 +81,6 @@
         
     </StackLayout>
 </ContentPage>
+<!--
+    tentar usar: https://gist.github.com/Char0394/f2c7f5e8a83144ab26a8b3863f36a4bc
+--->

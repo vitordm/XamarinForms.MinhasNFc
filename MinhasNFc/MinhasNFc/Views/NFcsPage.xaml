@@ -17,7 +17,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="10">
+                        <StackLayout Padding="10" BackgroundColor="White">
                             <Label Text="{Binding NumeroSerie}" 
                                 LineBreakMode="NoWrap" 
                                 FontSize="16" />

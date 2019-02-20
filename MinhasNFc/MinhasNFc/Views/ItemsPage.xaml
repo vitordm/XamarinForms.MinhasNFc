@@ -2,8 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MinhasNFc.Views.ItemsPage"
-              Title="{Binding Title}"
-             x:Name="BrowseItemsPage">
+             Title="{Binding Title}"
+             x:Name="BrowseItemsPage"
+             xmlns:converters="clr-namespace:MinhasNFc.Helpers.Layout.Converters">
+    <ContentPage.Resources>
+        <converters:BackgroundSincronizadoConverter x:Key="BackgroundSincronizado"></converters:BackgroundSincronizadoConverter>
+    </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="BKP" Clicked="ToolbarItem_Clicked">
         </ToolbarItem>
@@ -42,7 +46,7 @@
                                       CommandParameter="{Binding .}"
                                       IsDestructive="True"></MenuItem>
                         </ViewCell.ContextActions>
-                        <StackLayout Padding="10">
+                        <StackLayout Padding="10" BackgroundColor="{Binding Sincronizado, Converter={StaticResource Key=BackgroundSincronizado}}">
                             <Label Text="{Binding QrCode}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
