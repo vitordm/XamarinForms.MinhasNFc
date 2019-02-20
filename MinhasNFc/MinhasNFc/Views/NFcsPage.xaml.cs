@@ -1,4 +1,5 @@
-﻿using MinhasNFc.ViewModels;
+﻿using MinhasNFc.Models;
+using MinhasNFc.ViewModels;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -25,6 +26,15 @@ namespace MinhasNFc.Views
         {
             base.OnAppearing();
             _viewModel.AtualizarLista();
+        }
+
+        void OnNFcSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            if (!(args.SelectedItem is NFc nfc))
+                return;
+
+            Navigation.PushAsync(new NFcPage(nfc));
+            NFcListView.SelectedItem = null;
         }
     }
 }

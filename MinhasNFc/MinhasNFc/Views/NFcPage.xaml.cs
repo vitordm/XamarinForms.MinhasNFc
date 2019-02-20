@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MinhasNFc.Models;
+using MinhasNFc.ViewModels;
 
 namespace MinhasNFc.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NFcPage : ContentView
+	public partial class NFcPage : ContentPage
 	{
-		public NFcPage ()
+        private readonly NFcViewModel _viewModel;
+
+        public NFcPage (NFc nfc)
 		{
 			InitializeComponent ();
+            BindingContext = _viewModel = new NFcViewModel(nfc);
 		}
 	}
 }

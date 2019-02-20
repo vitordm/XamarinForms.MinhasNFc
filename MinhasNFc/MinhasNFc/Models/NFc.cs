@@ -31,6 +31,7 @@ namespace MinhasNFc.Models
         public IList<NFcItem> Itens { get; set; }
 
         public string NumeroSerie => $"{Numero}-{Serie}";
+        public string DataNFcFormat => DataNFc.ToString("dd/MM/yyyy HH:mm");
 
         public NFc()
         {

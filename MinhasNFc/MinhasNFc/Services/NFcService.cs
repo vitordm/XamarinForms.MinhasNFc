@@ -10,12 +10,27 @@ namespace MinhasNFc.Services
     public class NFcService : GenericService<NFc>, IStoreService<NFc>
     {
         private readonly NFcComercioService _nfcComercioService;
-        private readonly NFcItemService _NFcItemService;
+        private readonly NFcItemService _nfcItemService;
 
         public NFcService()
         {
             _nfcComercioService = new NFcComercioService();
-            _NFcItemService = new NFcItemService();
+            _nfcItemService = new NFcItemService();
+        }
+
+        public override NFc GetById(int id)
+        {
+            using (var conn = SQLiteDb.GetConnection())
+            {
+                var nfc = conn.Get<NFc>(id);
+                if (nfc == null)
+                    return nfc;
+
+                nfc.Comercio = _nfcComercioService.GetById(nfc.ComercioId);
+                nfc.Itens = _nfcItemService.ListByNFc(nfc.Id);
+
+                return nfc;
+            }
         }
 
         public override NFc Insert(NFc data)
@@ -34,7 +49,7 @@ namespace MinhasNFc.Services
                 foreach(var item in data.Itens)
                 {
                     item.NFcId = data.Id;
-                    _NFcItemService.Insert(item);
+                    _nfcItemService.Insert(item);
                 }
             }
 

@@ -11,24 +11,24 @@
         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
             <StackLayout Orientation="Vertical" Padding="0" Margin="0" VerticalOptions="StartAndExpand">
                 <Label Text="Numero" FontSize="13" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
-                <Label Text="100" FontSize="16" HorizontalTextAlignment="Center" />
+                <Label Text="{Binding Nfc.Numero}" FontSize="16" HorizontalTextAlignment="Center" />
             </StackLayout>
             <StackLayout Orientation="Vertical" Padding="5,0,0,0" Margin="0,0,50,0" VerticalOptions="StartAndExpand">
                 <Label Text="Série" FontSize="13" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
-                <Label Text="100" FontSize="14" HorizontalTextAlignment="Center"/>
+                <Label Text="{Binding Nfc.Serie}" FontSize="14" HorizontalTextAlignment="Center"/>
             </StackLayout>
             <StackLayout Orientation="Vertical" Padding="0" Margin="0"  HorizontalOptions="EndAndExpand">
                 <Label Text="Data da Compra" FontSize="13" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
-                <Label Text="22/10/2019 15:10:01" FontSize="14" HorizontalTextAlignment="Center"/>
+                <Label Text="{Binding Nfc.DataNFcFormat}" FontSize="14" HorizontalTextAlignment="Center"/>
             </StackLayout>
         </StackLayout>
         <StackLayout HorizontalOptions="FillAndExpand" Padding="0,10,0,0">
             <Label Text="Comprador" FontSize="13" FontAttributes="Bold"/>
-            <Label Text="NÃO IDENTIFICADO" FontSize="15" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding Consumidor}" FontSize="15" HorizontalTextAlignment="Center"/>
         </StackLayout>
         <StackLayout HorizontalOptions="FillAndExpand" Padding="0,10,0,0">
             <Label Text="Comércio" FontSize="13" FontAttributes="Bold"/>
-            <Label Text="Cia Zaffari" FontSize="15"/>
+            <Label Text="{Binding Comercio}" FontSize="15"/>
         </StackLayout>
         <StackLayout HorizontalOptions="FillAndExpand" Padding="0,10,0,0">
             <Label Text="Endereço" FontSize="13" FontAttributes="Bold"/>
@@ -36,26 +36,26 @@
         </StackLayout>
         <StackLayout HorizontalOptions="Fill" Padding="0,10,0,0">
             <Label Text="Itens" FontSize="13" FontAttributes="Bold"/>
-            <StackLayout Orientation="Vertical" BackgroundColor="White" Padding="10">
+            <StackLayout Orientation="Vertical" Padding="10">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="5">
-                    <Label Text="Codigo" />
-                    <Label Text="Descricao" />
-                    <Label Text="Un" />
-                    <Label Text="Valor Unitario" />
-                    <Label Text="Valor Total" />
+                    <Label Text="Codigo" FontSize="15" FontAttributes="Bold"/>
+                    <Label Text="Descricao" FontSize="15" FontAttributes="Bold"/>
+                    <Label Text="Un" FontSize="15" FontAttributes="Bold" />
+                    <Label Text="Valor Unitario" FontSize="15" FontAttributes="Bold" />
+                    <Label Text="Valor Total" FontSize="15" FontAttributes="Bold" />
                 </StackLayout>
             </StackLayout>
-            <ListView HasUnevenRows="True">
+            <ListView HasUnevenRows="True" ItemsSource="{Binding Nfc.Itens}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Vertical" BackgroundColor="White" Padding="10">
+                            <StackLayout Orientation="Vertical"  Padding="10">
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="5">
-                                    <Label Text="Codigo" />
-                                    <Label Text="Descricao" />
-                                    <Label Text="Un" />
-                                    <Label Text="Valor Unitario" />
-                                    <Label Text="Valor Total" />
+                                    <Label Text="{Binding Codigo}" FontSize="14" />
+                                    <Label Text="{Binding Descricao}" FontSize="14" />
+                                    <Label Text="{Binding Un}" FontSize="14" />
+                                    <Label Text="{Binding ValorUnitario}" FontSize="14" />
+                                    <Label Text="{Binding ValorTotal}" FontSize="14" />
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
@@ -67,15 +67,15 @@
         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
             <StackLayout Orientation="Vertical" Padding="0" Margin="0" VerticalOptions="StartAndExpand">
                 <Label Text="Valor Desconto" FontSize="13" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
-                <Label Text="100,10" FontSize="16" HorizontalTextAlignment="Center" />
+                <Label Text="{Binding Nfc.ValorDescontos}" FontSize="16" HorizontalTextAlignment="Center" />
             </StackLayout>
             <StackLayout Orientation="Vertical" Padding="0" Margin="0" VerticalOptions="StartAndExpand">
                 <Label Text="Valor Total" FontSize="13" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
-                <Label Text="100,10" FontSize="16" HorizontalTextAlignment="Center" />
+                <Label Text="{Binding Nfc.ValorTotal}" FontSize="16" HorizontalTextAlignment="Center" />
             </StackLayout>
             <StackLayout Orientation="Vertical" Padding="0" Margin="0" VerticalOptions="StartAndExpand">
                 <Label Text="Valor Pago" FontSize="13" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
-                <Label Text="100,10" FontSize="16" HorizontalTextAlignment="Center" />
+                <Label Text="{Binding Nfc.ValorPago}" FontSize="16" HorizontalTextAlignment="Center" />
             </StackLayout>
         </StackLayout>
         

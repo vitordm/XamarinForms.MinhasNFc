@@ -8,5 +8,15 @@ namespace MinhasNFc.Services
 {
     class NFcItemService : GenericService<NFcItem>, IStoreService<NFcItem>
     {
+        public IList<NFcItem> ListByNFc(int nfcId)
+        {
+            using (var conn = SQLiteDb.GetConnection())
+            {
+                return conn.Table<NFcItem>()
+                        .Where(item => item.NFcId == nfcId)
+                        .ToList();
+                    
+            }
+        }
     }
 }
