@@ -55,12 +55,18 @@ namespace MinhasNFc.ViewModels
                     Item.CriadoEm = DateTime.Now;
                     Item.Sincronizado = false;
                     _itemService.Insert(Item);
+                    MessagingCenter.Send<Item>(Item, "OnItemSave");
                 }
                 else
                 {
+#if DEBUG
                     _itemService.Update(Item);
+                    MessagingCenter.Send<Item>(Item, "OnItemSave");
+#else
+                    MessagingCenter.Send<string>("Não é possível editar o item!", "OnItemSaveError");
+#endif
                 }
-                MessagingCenter.Send<Item>(Item, "OnItemSave");
+                
             }
             catch(Exception ex)
             {

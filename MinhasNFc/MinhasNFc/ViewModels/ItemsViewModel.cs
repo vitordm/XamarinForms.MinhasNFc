@@ -68,8 +68,17 @@ namespace MinhasNFc.ViewModels
 
         public void SincronizarItem(Item item)
         {
-            _itemService.Sincronizar(item);
-            AtualizarLista();
+            try
+            {
+                _itemService.Sincronizar(item);
+                AtualizarLista();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessagingCenter.Send<string>("Erro ao sincronizar QrCode", "OnItemError");
+            }
+            
         }
     }
 }

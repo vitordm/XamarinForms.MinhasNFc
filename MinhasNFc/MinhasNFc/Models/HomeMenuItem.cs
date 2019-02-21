@@ -6,8 +6,8 @@ namespace MinhasNFc.Models
 {
     public enum MenuItemType
     {
-        Browse,
         NFc,
+        QrCodes,
         About,
     }
     public class HomeMenuItem

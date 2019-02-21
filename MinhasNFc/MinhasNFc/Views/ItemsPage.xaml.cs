@@ -47,6 +47,17 @@ namespace MinhasNFc.Views
         {
             base.OnAppearing();
             viewModel.AtualizarLista();
+            MessagingCenter.Subscribe<string>(this, "OnItemError", (msg) =>
+            {
+                DisplayAlert("Erro", msg, "Ok");
+            });
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            MessagingCenter.Unsubscribe<string>(this, "OnItemError");
+
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)
@@ -75,6 +86,7 @@ namespace MinhasNFc.Views
                 return;
 
             viewModel.SincronizarItem(item);
+            viewModel.AtualizarLista();
         }
     }
 }

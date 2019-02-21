@@ -41,21 +41,6 @@ namespace MinhasNFc
 
         private async void SolicitaPermissoesAsync()
         {
-            /*
-            var cameraPermission = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
-            var salvarPermission = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
-
-            if (cameraPermission != PermissionStatus.Granted || salvarPermission != PermissionStatus.Granted)
-            {
-                var results = await CrossPermissions.Current.RequestPermissionsAsync(new[] { Permission.Camera, Permission.Storage });
-                cameraPermission = results[Permission.Camera];
-                salvarPermission = results[Permission.Storage];
-            }
-
-            if (cameraPermission != PermissionStatus.Granted || salvarPermission != PermissionStatus.Granted)
-            {
-                await DisplayAlert("Permissões", "Acesse suas configurações e ative as permissões", "Ok");
-            }*/
 
             var cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
             if (cameraStatus != PermissionStatus.Granted)

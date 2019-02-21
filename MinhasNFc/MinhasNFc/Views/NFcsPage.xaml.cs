@@ -36,5 +36,10 @@ namespace MinhasNFc.Views
             Navigation.PushAsync(new NFcPage(nfc));
             NFcListView.SelectedItem = null;
         }
+
+        private void AddNFcToolbar_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ItemsPage());
+        }
     }
 }
