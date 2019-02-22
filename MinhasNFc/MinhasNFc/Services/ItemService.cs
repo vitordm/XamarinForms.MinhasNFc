@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MinhasNFc.Services
 {
@@ -31,10 +32,10 @@ namespace MinhasNFc.Services
             return item;
         }
 
-        public void Sincronizar(Item item)
+        public async Task Sincronizar(Item item)
         {
             var factoryNfc = new FactoryNFc(item.QrCode);
-            var nfc = factoryNfc.Factory();
+            var nfc = await factoryNfc.Factory();
             var myNfc = _nfcService.Insert(NFcOnlineToNfcMobo(nfc));
             if (myNfc != null)
             {

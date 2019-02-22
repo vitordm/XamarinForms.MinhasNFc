@@ -12,6 +12,7 @@ namespace MinhasNFc.ViewModels
         public NFc Nfc { get; set; }
         public string Consumidor { get; set; }
         public string Comercio { get; set; }
+        public string EnderecoComercio { get; set; }
 
 
         public NFcViewModel(NFc nfc)
@@ -29,6 +30,7 @@ namespace MinhasNFc.ViewModels
             }
 
             Comercio = $"{Nfc.Comercio.CNPJ} - {Nfc.Comercio.RazaoSocial}";
+            EnderecoComercio = Nfc.Comercio.Endereco;
         }
     }
 }

@@ -66,11 +66,11 @@ namespace MinhasNFc.ViewModels
             AtualizarLista();
         }
 
-        public void SincronizarItem(Item item)
+        public async void SincronizarItem(Item item)
         {
             try
             {
-                _itemService.Sincronizar(item);
+                await _itemService.Sincronizar(item);
                 AtualizarLista();
             }
             catch (Exception ex)

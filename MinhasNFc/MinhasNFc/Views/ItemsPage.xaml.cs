@@ -86,7 +86,7 @@ namespace MinhasNFc.Views
                 return;
 
             viewModel.SincronizarItem(item);
-            viewModel.AtualizarLista();
+            //viewModel.AtualizarLista();
         }
     }
 }

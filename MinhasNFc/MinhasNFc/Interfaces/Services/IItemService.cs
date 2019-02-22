@@ -1,9 +1,10 @@
 ﻿using MinhasNFc.Models;
+using System.Threading.Tasks;
 
 namespace MinhasNFc.Interfaces.Services
 {
     public interface IItemService : IStoreService<Item>
     {
-        void Sincronizar(Item item);
+        Task Sincronizar(Item item);
     }
 }
