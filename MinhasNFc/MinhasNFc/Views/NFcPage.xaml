@@ -24,7 +24,7 @@
             </StackLayout>
         </StackLayout>
         <StackLayout HorizontalOptions="FillAndExpand" Padding="0,10,0,0">
-            <Label Text="Comprador" FontSize="13" FontAttributes="Bold"/>
+            <Label Text="Consumidor" FontSize="13" FontAttributes="Bold"/>
             <Label Text="{Binding Consumidor}" FontSize="15" HorizontalTextAlignment="Center"/>
         </StackLayout>
         <StackLayout HorizontalOptions="FillAndExpand" Padding="0,10,0,0">
@@ -47,7 +47,7 @@
                            FontAttributes="Bold"
                            WidthRequest="150" 
                            HorizontalOptions="StartAndExpand"/>
-                    <Label Text="Qtde" FontSize="12" 
+                    <Label Text="Qtd" FontSize="12" 
                            FontAttributes="Bold"
                            WidthRequest="20" 
                            HorizontalOptions="StartAndExpand"/>

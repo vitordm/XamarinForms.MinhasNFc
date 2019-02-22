@@ -9,8 +9,7 @@
         <converters:BackgroundSincronizadoConverter x:Key="BackgroundSincronizado"></converters:BackgroundSincronizadoConverter>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="BKP" Clicked="ToolbarItem_Clicked">
-        </ToolbarItem>
+        <!--<ToolbarItem Text="BKP" Clicked="ToolbarItem_Clicked"></ToolbarItem>-->
         <ToolbarItem Text="Nova" Clicked="AddItem_Clicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
